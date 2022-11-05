@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'TelegramLogin',
@@ -10,8 +11,11 @@ export default {
     this.init()
   },
   methods:{
+    ...mapActions('user', [
+      'LOGIN',
+    ]),
     onTelegramAuth(user){
-      alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+      this.LOGIN(user);
     },
     init(){
       window.onTelegramAuth = this.onTelegramAuth
