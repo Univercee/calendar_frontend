@@ -1,5 +1,6 @@
 <template>
   <div ref="telegramWrapper"></div>
+  {{is_auth}}
 </template>
 
 <script>
@@ -9,6 +10,11 @@ export default {
   name: 'TelegramLogin',
   mounted(){
     this.init()
+  },
+  computed:{
+    ...mapGetters('user', [
+      'is_auth'
+    ])
   },
   methods:{
     ...mapActions('user', [
