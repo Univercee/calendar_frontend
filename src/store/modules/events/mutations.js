@@ -1,7 +1,6 @@
 export default {
   fetch(state, events) {
-    state.events = events
-    
+    state.events = events 
   },
   add(state, event) {
     state.events.push(event)
@@ -19,5 +18,8 @@ export default {
     if (index > -1) {
       state.events.splice(index, 1);
     }
-  }
+  },
+  logout(state) {
+    state.events = [] 
+  },
 }

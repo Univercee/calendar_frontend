@@ -36,6 +36,7 @@ export default {
       })
     },
     LOGOUT(context) {
+      context.commit("events/logout", null, { root: true })
       context.commit("logout")
     }
 }
