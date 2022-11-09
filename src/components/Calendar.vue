@@ -32,11 +32,21 @@ export default {
     ...mapGetters('events', [
       'events',
     ]),
+    ...mapGetters('user', [
+      'is_auth',
+    ]),
     attributes() {
       return this.events.map(event => ({
         dot: true,
         dates: event.date
       }));
+    }
+  },
+  watch:{
+    is_auth: function(val){
+      if(val){
+        this.FETCH()
+      }
     }
   },
   methods: {

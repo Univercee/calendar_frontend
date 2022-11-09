@@ -1,24 +1,18 @@
 <template>
   <div ref="telegramWrapper"></div>
-  {{is_auth}}
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'TelegramLogin',
   mounted(){
     this.init()
   },
-  computed:{
-    ...mapGetters('user', [
-      'is_auth'
-    ])
-  },
   methods:{
     ...mapActions('user', [
-      'LOGIN',
+      'LOGIN'
     ]),
     onTelegramAuth(user){
       this.LOGIN(user);
